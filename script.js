@@ -1,5 +1,6 @@
 var cards=[];
-words=[];
+var words=[];
+var realwords=[]
 var data;
 
 function preload(){
@@ -10,6 +11,9 @@ function setup(){
   createCanvas(400,400);
   background(220);
   words=data.getColumn(0);
+  for (var b=0;b<words.length;b++){
+    realwords.push(parseString(words[b]));
+  }
 }
 
 
