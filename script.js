@@ -1,8 +1,15 @@
 var cards=[];
+words=[];
+var data;
+
+function preload(){
+  data=loadTable("Math_Codenames_Word_List.csv",".csv");
+}
 
 function setup(){
   createCanvas(400,400);
   background(220);
+  words=data.getColumn(0);
 }
 
 
