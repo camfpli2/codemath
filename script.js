@@ -50,7 +50,7 @@ function determineTextSize(current){
   var allgood=true;
   textSize(current);
   for(var g=0;g<boardWords.length;g++){
-    if(textWidth(boardWords[g])>spaceToOccupyByCards){
+    if(textWidth(boardWords[g])>widthOfEachCard){
       allgood=false;
     }
   }
