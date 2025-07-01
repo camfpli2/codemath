@@ -1,5 +1,6 @@
 var cardColor=[255,225,245];
 var cardBorder=[125,190,255];
+var textColor=[10,50,90];
 var words=[];
 var board=[];
 var boardSideValue;  //# of pixels the square will occupy
@@ -73,6 +74,7 @@ class card{
     rect(this.x,this.y,this.w,this.h,3);
     textAlign(CENTER,CENTER);
     textSize(30);
+    fill(textColor);
     text(this.txt,this.x+this.w/2,this.y+this.h/2);
   }
 
