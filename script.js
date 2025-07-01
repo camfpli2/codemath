@@ -11,9 +11,9 @@ function preload(){
 function setup(){
   wdth=windowWidth;
   hgt=windowHeight;
-  if(windowWidth>windowHeight){createCanvas(windowWidth,windowWidth);}
+  if(windowWidth<windowHeight){createCanvas(windowWidth,windowWidth);}
   else{createCanvas(windowHeight,windowHeight);}
-  background(220);
+  background(100,150,220);
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
   for(var b=0;b<25;b++){
