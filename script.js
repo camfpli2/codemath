@@ -46,7 +46,23 @@ function getBoardWords(){
   return tempArray;
 }
 
+function determineTextSize(current){
+  var allgood=true;
+  textSize(current);
+  for(var g=0;g<boardWords.length;g++){
+    if(textWidth(boardWords[g])>spaceToOccupyByCards){
+      allgood=false;
+    }
+  }
+  if(allgood){return current;}
+  else{
+    var next=current-1;
+    determineTextSize(next);
+  }
+}
+
 function drawBoard(){
+  determineTextSize(30);  
   for(var d=0;d<board.length;d++){
     board[d].drawit();
   }
@@ -85,7 +101,7 @@ class card{
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,3);
     textAlign(CENTER,CENTER);
-    textSize(30);
+    //textSize(30);
     fill(textColor);
     noStroke();
     text(this.txt,this.x+this.w/2,this.y+this.h/2);
