@@ -1,8 +1,9 @@
 var cardColor=[255,225,245];
 var cardBorder=[125,190,255];
 var textColor=[10,50,90];
-var words=[];
-var board=[];
+var words=[];   //all words in bank
+var board=[];  //array of objects class is called CARD
+var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels the square will occupy
 var xValues;
 var data;
@@ -23,15 +24,26 @@ function setup(){
   else{ boardSideValue=windowWidth-20;}
   rect(5,5,boardSideValue, boardSideValue,6);
   words=data.getColumn(0);
-  var indexes=getDistinctRandomIntegers(25, words.length-1);
+  boardWords=getBoardWords();
   xValues=figureX();
+  var counter=0;
   for(var r=0;r<5;r++){
     for(var c=0;c<5;c++){
-      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,words[indexes[r*c]]));
+      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,boardWords[counter]));
+      counter++;
     }
   }
   drawBoard();
   
+}
+
+function getBoardWords(){
+    var tempArray=[];
+    var indexes=getDistinctRandomIntegers(25, words.length-1);
+    for(var k=0;k<indexes.length;k++){
+      tempArray.push(words[indexes[k]]);
+    }
+  return tempArray;
 }
 
 function drawBoard(){
@@ -75,6 +87,7 @@ class card{
     textAlign(CENTER,CENTER);
     textSize(30);
     fill(textColor);
+    noStroke();
     text(this.txt,this.x+this.w/2,this.y+this.h/2);
   }
 
