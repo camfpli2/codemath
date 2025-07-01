@@ -1,5 +1,5 @@
 var cardColor=[255,225,245];
-var cardBorder=[125,100,255];
+var cardBorder=[125,190,255];
 var words=[];
 var board=[];
 var boardSideValue;  //# of pixels the square will occupy
@@ -16,8 +16,8 @@ function preload(){
 
 function setup(){
   createCanvas(windowWidth-10,windowHeight-10);
-  background(240);
-  fill(100,150,220);
+  background(230);
+  fill(245);
   if(windowWidth>windowHeight){ boardSideValue=windowHeight-20}
   else{ boardSideValue=windowWidth-20;}
   rect(5,5,boardSideValue, boardSideValue,6);
@@ -71,6 +71,9 @@ class card{
     stroke(cardBorder);
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,3);
+    textAlign(CENTER,CENTER);
+    textSize(30);
+    text(this.txt,this.x+this.w/2,this.y+this.h/2);
   }
 
   
