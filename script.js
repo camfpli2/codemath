@@ -10,7 +10,7 @@ function setup(){
   createCanvas(400,400);
   background(220);
   words=data.getColumn(0);
-  for(var b=0;b<words.length;b++){
+  for(var b=0;b<25;b++){
     //cards.push(new card())
   }
 }
