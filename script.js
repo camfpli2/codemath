@@ -11,8 +11,8 @@ function preload(){
 function setup(){
   wdth=windowWidth;
   hgt=windowHeight;
-  if(windowWidth<windowHeight){createCanvas(windowWidth,windowWidth);}
-  else{createCanvas(windowHeight,windowHeight);}
+  if(windowWidth<windowHeight){createCanvas(windowWidth-5,windowWidth-5);}
+  else{createCanvas(windowHeight-5,windowHeight-5);}
   background(100,150,220);
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
