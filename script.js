@@ -18,7 +18,7 @@ function setup(){
   rect(5,5,boardSideValue, boardSideValue,6);
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
-  figureX();
+  var xValues=figureX();
   for(var b=0;b<25;b++){
     //board.push(new card())
   }
