@@ -15,7 +15,9 @@ function setup(){
   }
 }
 
-
+function getRandomIntegerInclusive(n) {
+  return Math.floor(Math.random() * (n + 1));
+}
 
 class card{
   constructor(x,y,w,h,txt){
