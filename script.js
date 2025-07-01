@@ -44,7 +44,7 @@ function figureX(){
   widthOfEachCard=spaceToOccupyByCards/5;
   var arr=[];
   for(var b=0;b<6;b++){
-    arr.push(10+b*widthOfEachCard+b*10);
+    arr.push(10+b*widthOfEachCard+b*5);
   }
   return arr;
 }
