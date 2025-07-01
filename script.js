@@ -58,6 +58,7 @@ function determineTextSize(current){
   else{
     var next=current-1;
     determineTextSize(next);
+    console.log(next);
   }
 }
 
