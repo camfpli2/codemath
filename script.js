@@ -1,3 +1,5 @@
+var cardColor=[255,225,245];
+var cardBorder=[125,100,255];
 var words=[];
 var board=[];
 var boardSideValue;  //# of pixels the square will occupy
@@ -27,6 +29,14 @@ function setup(){
       board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,words[indexes[r*c]]));
     }
   }
+  drawBoard();
+  
+}
+
+function drawBoard(){
+  for(var d=0;d<board.length;d++){
+    board[d].drawit();
+  }
 }
 
 function figureX(){
@@ -54,6 +64,13 @@ function getDistinctRandomIntegers(d, n) {
 class card{
   constructor(x,y,w,h,txt){
     this.x=x;this.y=y;this.w=w;this.h=h;this.txt=txt;
+  }
+
+  drawit(){
+    fill(cardColor);
+    stroke(cardBorder);
+    strokeWeight(1);
+    rect(this.x,this.y,this.w,this.h,3);
   }
 
   
