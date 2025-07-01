@@ -1,5 +1,6 @@
 var words=[];
 var board=[];
+var boardSideValue;  //# of pixels the square will occupy
 var data;
 var wdth;
 var hgt;
@@ -9,16 +10,23 @@ function preload(){
 }
 
 function setup(){
-  wdth=windowWidth;
-  hgt=windowHeight;
-  if(windowWidth<windowHeight){createCanvas(windowWidth-5,windowWidth-5);}
-  else{createCanvas(windowHeight-5,windowHeight-5);}
-  background(100,150,220);
+  createCanvas(windowWidth-10,windowHeight-10);
+  background(240);
+  fill(100,150,220);
+  if(windowWidth>windowHeight){ boardSideValue=windowHeight-20}
+  else{ boardSideValue=windowWidth-20;}
+  rect(5,5,boardSideValue, boardSideValue,6);
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
   for(var b=0;b<25;b++){
     //board.push(new card())
   }
+}
+
+function figureX(){
+  var wholeSpan=windowWidth-5;
+  var arr=[];
+  
 }
 
 function getDistinctRandomIntegers(d, n) {
