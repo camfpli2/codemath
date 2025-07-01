@@ -5,6 +5,8 @@ var xValues;
 var data;
 var wdth;
 var hgt;
+var spaceToOccupyByCards;
+var widthOfEachCard;
 
 function preload(){
   data=loadTable("Math_Codenames_Word_List.csv",".csv");
@@ -20,14 +22,16 @@ function setup(){
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
   xValues=figureX();
-  for(var b=0;b<25;b++){
-    //board.push(new card())
+  for(var r=0;r<5;r++){
+    for(var c=0;c<5;c++){
+      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,words[indexes[r*c]]));
+    }
   }
 }
 
 function figureX(){
-  var spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
-  var widthOfEachCard=spaceToOccupyByCards/5;
+  spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
+  widthOfEachCard=spaceToOccupyByCards/5;
   var arr=[];
   for(var b=0;b<6;b++){
     arr.push(10+b*widthOfEachCard+b*10);
