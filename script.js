@@ -1,22 +1,36 @@
-var cards=[];
 var words=[];
+var board=[];
 var data;
+var wdth;
+var hgt;
 
 function preload(){
   data=loadTable("Math_Codenames_Word_List.csv",".csv");
 }
 
 function setup(){
-  createCanvas(400,400);
+  wdth=windowWidth;
+  hgt=windowHeight;
+  if(windowWidth>windowHeight){createCanvas(windowWidth,windowWidth);}
+  else{createCanvas(windowHeight,windowHeight);}
   background(220);
   words=data.getColumn(0);
+  var indexes=getDistinctRandomIntegers(25, words.length-1);
   for(var b=0;b<25;b++){
-    //cards.push(new card())
+    //board.push(new card())
   }
 }
 
-function getRandomIntegerInclusive(n) {
-  return Math.floor(Math.random() * (n + 1));
+function getDistinctRandomIntegers(d, n) {
+  if (d > n + 1 || d < 0) {
+    throw new Error("Cannot generate " + d + " distinct integers within the range [0, " + n + "].");
+  }
+  const result = new Set();
+  while (result.size < d) {
+    const randomNumber = Math.floor(Math.random() * (n + 1)); // Generates a random integer between 0 and n (inclusive)
+    result.add(randomNumber);
+  }
+  return Array.from(result);
 }
 
 class card{
