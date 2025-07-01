@@ -18,15 +18,20 @@ function setup(){
   rect(5,5,boardSideValue, boardSideValue,6);
   words=data.getColumn(0);
   var indexes=getDistinctRandomIntegers(25, words.length-1);
+  figureX();
   for(var b=0;b<25;b++){
     //board.push(new card())
   }
 }
 
 function figureX(){
-  var wholeSpan=windowWidth-5;
+  var spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
+  var widthOfEachCard=spaceToOccupyByCards/5;
   var arr=[];
-  
+  for(var b=0;b<6;b++){
+    arr.push(10+b*widthOfEachCard+b*10);
+  }
+  return arr;
 }
 
 function getDistinctRandomIntegers(d, n) {
