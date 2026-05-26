@@ -1,10 +1,10 @@
 var cardColor=[255,225,245];
 var cardBorder=[125,190,255];
 var textColor=[10,10,20];
-var redColor=[225,20,40];
-var blueColor=[40,20,225];
+var redColor=[203, 66, 51];
+var blueColor=[38, 141, 168];
 var yellowColor=[212, 194, 167];
-var blackColor=[100];
+var blackColor=[80];
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
