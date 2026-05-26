@@ -11,6 +11,9 @@ var wdth;
 var hgt;
 var spaceToOccupyByCards;
 var widthOfEachCard;
+var redPicking=false;
+var bluePicking=false;
+var showing=false;
 
 function preload(){
   data=loadTable("Math_Codenames_Word_List.csv",".csv");
@@ -33,7 +36,7 @@ function setup(){
       counter++;
     }
   }
-  drawBoard();
+  assignScreen();
   
 }
 
@@ -41,6 +44,10 @@ function startScreen(){   //homescreen with AI generated image (later)
 }
 
 function assignScreen(){   //instructs players to hit button once codegivers are not looking
+  drawBoard();
+}
+
+function showColors(){    //showing who picks what, only codegivers should be looking
   
 }
 
@@ -138,7 +145,6 @@ class card{
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,3);
     textAlign(CENTER,CENTER);
-    //textSize(30);
     fill(textColor);
     noStroke();
     text(this.txt,this.x+this.w/2,this.y+this.h/2);
