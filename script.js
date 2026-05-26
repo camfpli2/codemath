@@ -141,7 +141,7 @@ function getDistinctRandomIntegers(d, n) {
 }
 
 function touchStarted(){
-  for(var j=0;j<cards.length;j++){
+  for(var j=0;j<board.length;j++){
     board[j].tapit();
   }
   return false;
