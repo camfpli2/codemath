@@ -38,7 +38,7 @@ function setup(){
   var counter=0;
   for(var r=0;r<4;r++){
     for(var c=0;c<4;c++){
-      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,boardWords[counter]));
+      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,boardWords[counter],counter));
       counter++;
     }
   }
@@ -153,18 +153,18 @@ function keyTyped() {     //this function will run anytime the user types any ke
 }
 
 class card{
-  constructor(x,y,w,h,txt){
-    this.x=x;this.y=y;this.w=w;this.h=h;this.txt=txt;
+  constructor(x,y,w,h,txt,ind){
+    this.x=x;this.y=y;this.w=w;this.h=h;this.txt=txt;this.ind=ind;this.rgb=cardColor;
   }
 
-  drawit(ind){
+  drawit(indy){
     if(showing){
-      if(colors[ind]==="R"){fill(redColor);}
-      else if(colors[ind]==="B"){fill(blueColor);}
-      else if(colors[ind]==="I"){fill(yellowColor);}
+      if(colors[indy]==="R"){fill(redColor);}
+      else if(colors[indy]==="B"){fill(blueColor);}
+      else if(colors[indy]==="I"){fill(yellowColor);}
       else {fill(blackColor);}    
     }
-    else {fill(cardColor);}
+    else {fill(this.rgb);}
     stroke(cardBorder);
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,3);
@@ -176,7 +176,8 @@ class card{
 
   tapit(){
     if(mouseX>=this.x&&mouseX<=this.x+this.w&&mouseY>=this.y&&mouseY<=this.y+this.h){
-      
+      this.rgb=colors[this.ind];
+      drawBoard();
     }
   }
 }
