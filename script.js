@@ -4,7 +4,7 @@ var textColor=[10,50,90];
 var redColor=[225,20,40];
 var blueColor=[40,20,225];
 var yellowColor=[212, 194, 167];
-var blackColor=[60];
+var blackColor=[100];
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
@@ -160,7 +160,7 @@ class card{
     if(showing){
       if(colors[ind]==="R"){fill(redColor);}
       else if(colors[ind]==="B"){fill(blueColor);}
-      else if(colors[ind]==="Y"){fill(yellowColor);}
+      else if(colors[ind]==="I"){fill(yellowColor);}
       else {fill(blackColor);}    
     }
     else {fill(cardColor);}
