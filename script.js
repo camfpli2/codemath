@@ -44,6 +44,24 @@ function assignScreen(){   //instructs players to hit button once codegivers are
   
 }
 
+function generateCodenamesGrid() {
+    // 1. Create the initial array with exactly the required counts
+    const cards = [
+        'B', 'B', 'B', 'B', // 4 Blue (Team 1)
+        'R', 'R', 'R', 'R', // 4 Red (Team 2)
+        'I', 'I', 'I', 'I', 'I', 'I', 'I', // 7 Innocent Bystanders
+        'A'                 // 1 Assassin
+    ];
+
+    // 2. Fisher-Yates Shuffle Algorithm
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    return array;
+}
+
+
 function getBoardWords(){
     var tempArray=[];
     var indexes=getDistinctRandomIntegers(16, words.length-1);
