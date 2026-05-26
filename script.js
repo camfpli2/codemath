@@ -8,6 +8,7 @@ var blackColor=[80];
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
+var rgbColors; //array of actual rgb combos for each element
 var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels the square will occupy
 var xValues;
@@ -34,6 +35,12 @@ function setup(){
   words=data.getColumn(0);
   boardWords=getBoardWords();
   colors=generateCodenamesGrid();
+  for(var p=0; p<colors.length; p++){
+    if(colors[p]==="R"){rgbColors.push(redColor);}
+    else if(colors[p]==="B"){rgbColors.push(blueColor);}
+    else if(colors[p]==="I"){rgbColors.push(yellowColor);}
+    else{rgbColors.push(blackColor);}
+  }
   xValues=figureX();
   var counter=0;
   for(var r=0;r<4;r++){
@@ -183,7 +190,7 @@ class card{
 
   tapit(){
     if(mouseX>=this.x&&mouseX<=this.x+this.w&&mouseY>=this.y&&mouseY<=this.y+this.h){
-      this.rgb=colors[this.ind];
+      this.rgb=rgbColors[this.ind];
       drawBoard();
     }
   }
