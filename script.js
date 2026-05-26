@@ -20,6 +20,7 @@ var widthOfEachCard;
 var redPicking=false;
 var bluePicking=false;
 var showing=false;
+var blueAgent; var blueDouble; var redAgent; var redDouble; var assassin;
 
 
 function preload(){
@@ -30,6 +31,11 @@ function setup(){
   createCanvas(windowWidth-10,windowHeight-10);
   background(230);
   fill(245);
+  blueAgent=loadImage("blue_agent.png",".png");
+  blueDouble=loadImage("blue_double.png",".png");
+  redAgent=loadImage("red_agent.png",".png");
+  redDouble=loadImage("red_double.png",".png");
+  assassin=loadImage("assassin.png",".png");
   if(windowWidth>windowHeight){ boardSideValue=windowHeight-20}
   else{ boardSideValue=windowWidth-20;}
   rect(5,5,boardSideValue, boardSideValue,6);
