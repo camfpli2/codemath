@@ -1,6 +1,6 @@
 var cardColor=[255,225,245];
 var cardBorder=[125,190,255];
-var textColor=[10,50,90];
+var textColor=[10,10,20];
 var redColor=[225,20,40];
 var blueColor=[40,20,225];
 var yellowColor=[212, 194, 167];
