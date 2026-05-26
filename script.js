@@ -147,7 +147,8 @@ function keyTyped() {     //this function will run anytime the user types any ke
   }
   
   else if (key === 'f'){
-
+    showing=false;
+    drawBoard();
   }
 }
 
