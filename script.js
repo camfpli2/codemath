@@ -21,6 +21,7 @@ var redPicking=false;
 var bluePicking=false;
 var showing=false;
 
+
 function preload(){
   data=loadTable("Math_Codenames_Word_List.csv",".csv");
 }
