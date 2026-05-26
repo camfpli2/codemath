@@ -27,8 +27,8 @@ function setup(){
   boardWords=getBoardWords();
   xValues=figureX();
   var counter=0;
-  for(var r=0;r<5;r++){
-    for(var c=0;c<5;c++){
+  for(var r=0;r<4;r++){
+    for(var c=0;c<4;c++){
       board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,boardWords[counter]));
       counter++;
     }
@@ -37,9 +37,16 @@ function setup(){
   
 }
 
+function startScreen(){   //homescreen with AI generated image (later)
+}
+
+function assignScreen(){   //instructs players to hit button once codegivers are not looking
+  
+}
+
 function getBoardWords(){
     var tempArray=[];
-    var indexes=getDistinctRandomIntegers(25, words.length-1);
+    var indexes=getDistinctRandomIntegers(16, words.length-1);
     for(var k=0;k<indexes.length;k++){
       tempArray.push(words[indexes[k]]);
     }
@@ -58,7 +65,6 @@ function determineTextSize(current){
   else{
     var next=current-1;
     determineTextSize(next);
-    console.log(next);
   }
 }
 
@@ -69,12 +75,24 @@ function drawBoard(){
   }
 }
 
+// function figureX(){
+//   spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
+//   widthOfEachCard=spaceToOccupyByCards/5;
+//   var arr=[];
+//   for(var b=0;b<6;b++){
+//     arr.push(10+b*widthOfEachCard+b*5);
+//   }
+//   return arr;
+// }
+
+
+
 function figureX(){
-  spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
-  widthOfEachCard=spaceToOccupyByCards/5;
+  spaceToOccupyByCards=boardSideValue-30   
+  widthOfEachCard=spaceToOccupyByCards/4;
   var arr=[];
-  for(var b=0;b<6;b++){
-    arr.push(10+b*widthOfEachCard+b*5);
+  for(var b=0;b<5;b++){
+    arr.push(10+b*widthOfEachCard+b*4);
   }
   return arr;
 }
