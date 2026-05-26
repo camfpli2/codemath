@@ -1,8 +1,13 @@
 var cardColor=[255,225,245];
 var cardBorder=[125,190,255];
 var textColor=[10,50,90];
+var redColor=[225,20,40];
+var blueColor=[40,20,225];
+var yellowColor=[212, 194, 167];
+var blackColor=[60];
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
+var colors;  //array of R's B's I's and 1 A
 var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels the square will occupy
 var xValues;
@@ -28,6 +33,7 @@ function setup(){
   rect(5,5,boardSideValue, boardSideValue,6);
   words=data.getColumn(0);
   boardWords=getBoardWords();
+  colors=generateCodenamesGrid();
   xValues=figureX();
   var counter=0;
   for(var r=0;r<4;r++){
@@ -48,7 +54,7 @@ function assignScreen(){   //instructs players to hit button once codegivers are
 }
 
 function showColors(){    //showing who picks what, only codegivers should be looking
-  
+  drawBoard();
 }
 
 function generateCodenamesGrid() {
@@ -96,7 +102,7 @@ function determineTextSize(current){
 function drawBoard(){
   determineTextSize(30);  
   for(var d=0;d<board.length;d++){
-    board[d].drawit();
+    board[d].drawit(d);
   }
 }
 
@@ -134,13 +140,30 @@ function getDistinctRandomIntegers(d, n) {
   return Array.from(result);
 }
 
+function keyTyped() {     //this function will run anytime the user types any key
+  if (key === 's'){
+    showing=true;
+    showColors();
+  }
+  
+  else if (key === 'f'){
+
+  }
+}
+
 class card{
   constructor(x,y,w,h,txt){
     this.x=x;this.y=y;this.w=w;this.h=h;this.txt=txt;
   }
 
-  drawit(){
-    fill(cardColor);
+  drawit(ind){
+    if(showing){
+      if(colors[ind]==="R"){fill(redColor);}
+      else if(colors[ind]==="B"){fill(blueColor);}
+      else if(colors[ind]==="Y"){fill(yellowColor);}
+      else {fill(blackColor);}    
+    }
+    else {fill(cardColor);}
     stroke(cardBorder);
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,3);
