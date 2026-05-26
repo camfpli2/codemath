@@ -31,7 +31,7 @@ function setup(){
   createCanvas(windowWidth-10,windowHeight-10);
   background(230);
   fill(245);
-  blueAgent=loadImage("blue_agent.png",".png");
+  blueAgent=loadImage('blue_agent.png');
   blueDouble=loadImage("blue_double.png",".png");
   redAgent=loadImage("red_agent.png",".png");
   redDouble=loadImage("red_double.png",".png");
