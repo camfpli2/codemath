@@ -174,5 +174,9 @@ class card{
     text(this.txt,this.x+this.w/2,this.y+this.h/2);
   }
 
-  
+  tapit(){
+    if(mouseX>=this.x&&mouseX<=this.x+this.w&&mouseY>=this.y&&mouseY<=this.y+this.h){
+      
+    }
+  }
 }
