@@ -140,6 +140,13 @@ function getDistinctRandomIntegers(d, n) {
   return Array.from(result);
 }
 
+function touchStarted(){
+  for(var j=0;j<cards.length;j++){
+    cards[j].tapit();
+  }
+  return false;
+}
+
 function keyTyped() {     //this function will run anytime the user types any key
   if (key === 's'){
     showing=true;
