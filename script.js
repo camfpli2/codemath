@@ -8,7 +8,7 @@ var blackColor=[80];
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
-var rgbColors; //array of actual rgb combos for each element
+var rgbColors=[]; //array of actual rgb combos for each element
 var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels the square will occupy
 var xValues;
