@@ -71,7 +71,7 @@ function generateCodenamesGrid() {
         const j = Math.floor(Math.random() * (i + 1));
         [cards[i], cards[j]] = [cards[j], cards[i]];
     }
-    return array;
+    return cards;
 }
 
 
