@@ -5,12 +5,14 @@ var redColor=[203, 66, 51];
 var blueColor=[38, 141, 168];
 var yellowColor=[212, 194, 167];
 var blackColor=[80];
+var numWords=16;  //4x4 grid, hopefully easy to make 5x5 later by adjusting this
 var words=[];   //all words in bank
 var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
 var rgbColors=[]; //array of actual rgb combos for each element
 var boardWords=[];  //25 words on the board
-var boardSideValue;  //# of pixels the square will occupy
+var boardSideValue;  //# of pixels that is height of the rectangular board
+var boardWidthValue; //will be 20thirteenths of the boardSideValue later (*20/13)
 var xValues;
 var data;
 var wdth;
@@ -36,13 +38,19 @@ function setup(){
   redAgent=loadImage('red_agent.png');
   redDouble=loadImage('red_double.png');
   assassin=loadImage('assassin.png');
-  if(windowWidth>windowHeight){ boardSideValue=windowHeight-20}
-  else{ boardSideValue=windowWidth-20;}
-  rect(5,5,boardSideValue, boardSideValue,6);
+  if(windowWidth>windowHeight){ 
+    boardSideValue=windowHeight-20
+    boardWidthValue=int(boardSideValue*(20/13)); 
+  }
+  else{ 
+    boardWidthValue=windowWidth-20;
+    boardSideValue=int(boardWidthValue*(13/20));
+  }
+  rect(5,5,boardWidthValue, boardSideValue,6);
   words=data.getColumn(0);
-  boardWords=getBoardWords();
-  colors=generateCodenamesGrid();
-  for(var p=0; p<colors.length; p++){
+  boardWords=getBoardWords();  // will get {numWords} words, being written as 16
+  colors=generateCodenamesGrid();  //colors now has B's R's Y's A
+  for(var p=0; p<colors.length; p++){  //rgbColors mirrors colors with rgb codes for each
     if(colors[p]==="R"){rgbColors.push(redColor);}
     else if(colors[p]==="B"){rgbColors.push(blueColor);}
     else if(colors[p]==="I"){rgbColors.push(yellowColor);}
@@ -52,7 +60,7 @@ function setup(){
   var counter=0;
   for(var r=0;r<4;r++){
     for(var c=0;c<4;c++){
-      board.push(new card(xValues[c],xValues[r],widthOfEachCard,widthOfEachCard,boardWords[counter],counter));
+      board.push(new card(xValues[c],xValues[r],widthOfEachCard,.65*widthOfEachCard,boardWords[counter],counter));
       counter++;
     }
   }
@@ -91,7 +99,7 @@ function generateCodenamesGrid() {
 
 function getBoardWords(){
     var tempArray=[];
-    var indexes=getDistinctRandomIntegers(16, words.length-1);
+    var indexes=getDistinctRandomIntegers(numWords, words.length-1);
     for(var k=0;k<indexes.length;k++){
       tempArray.push(words[indexes[k]]);
     }
@@ -133,7 +141,7 @@ function drawBoard(){
 
 
 function figureX(){
-  spaceToOccupyByCards=boardSideValue-30   
+  spaceToOccupyByCards=boardWidthValue-30   
   widthOfEachCard=spaceToOccupyByCards/4;
   var arr=[];
   for(var b=0;b<5;b++){
