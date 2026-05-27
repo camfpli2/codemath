@@ -27,7 +27,8 @@ var blueAgent; var blueDouble; var redAgent; var redDouble; var assassin; var by
 
 
 function preload(){
-  data=loadTable("Math_Codenames_Word_List.csv",".csv");
+  //data=loadTable("Math_Codenames_Word_List.csv",".csv");
+  data=loadTable("codemath-words.csv",".csv");
 }
 
 function setup(){
