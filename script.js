@@ -14,11 +14,10 @@ var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels that is height of the rectangular board
 var boardWidthValue; //will be 20thirteenths of the boardSideValue later (*20/13)
 var xValues;
+var yValues;
 var data;
 var wdth;
 var hgt;
-var spaceToOccupyByCards;
-var widthOfEachCard;
 var redPicking=false;
 var bluePicking=false;
 var showing=false;
@@ -57,10 +56,11 @@ function setup(){
     else{rgbColors.push(blackColor);}
   }
   xValues=figureX();
+  yValues=figureY();
   var counter=0;
   for(var r=0;r<4;r++){
     for(var c=0;c<4;c++){
-      board.push(new card(xValues[c],xValues[r],widthOfEachCard,.65*widthOfEachCard,boardWords[counter],counter));
+      board.push(new card(xValues[c],yValues[r],widthOfEachCard,.65*widthOfEachCard,boardWords[counter],counter));
       counter++;
     }
   }
@@ -141,11 +141,21 @@ function drawBoard(){
 
 
 function figureX(){
-  spaceToOccupyByCards=boardWidthValue-30   
-  widthOfEachCard=spaceToOccupyByCards/4;
+  var spaceToOccupyByCards=boardWidthValue-30   
+  var widthOfEachCard=spaceToOccupyByCards/4;
   var arr=[];
   for(var b=0;b<5;b++){
     arr.push(10+b*widthOfEachCard+b*4);
+  }
+  return arr;
+}
+
+function figureY(){
+  var spaceToOccupyByCards=boardSideValue-30   
+  var heightOfEachCard=spaceToOccupyByCards/4;
+  var arr=[];
+  for(var b=0;b<5;b++){
+    arr.push(10+b*heightOfEachCard+b*4);
   }
   return arr;
 }
