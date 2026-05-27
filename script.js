@@ -13,6 +13,7 @@ var rgbColors=[]; //array of actual rgb combos for each element
 var boardWords=[];  //25 words on the board
 var boardSideValue;  //# of pixels that is height of the rectangular board
 var boardWidthValue; //will be 20thirteenths of the boardSideValue later (*20/13)
+var widthOfEachCard;
 var xValues;
 var yValues;
 var data;
@@ -142,7 +143,7 @@ function drawBoard(){
 
 function figureX(){
   var spaceToOccupyByCards=boardWidthValue-30   
-  var widthOfEachCard=spaceToOccupyByCards/4;
+  widthOfEachCard=spaceToOccupyByCards/4;
   var arr=[];
   for(var b=0;b<5;b++){
     arr.push(10+b*widthOfEachCard+b*4);
