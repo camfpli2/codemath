@@ -240,7 +240,7 @@ class card{
       }
       else if(colors[this.ind]==="B"){
         if(random()>.5){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
-        else{blueDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
+        else{image(blueDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
       }
       else if(colors[this.ind]==="I"){
         if(random()>.5){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
