@@ -234,9 +234,18 @@ class card{
 
   drawPic(indy){
     if(activated[indy]===1){
-      if(colors[this.ind]==="R"){image(redAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
-      else if(colors[this.ind]==="B"){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
-      else if(colors[this.ind]==="I"){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
+      if(colors[this.ind]==="R"){
+        if(random()>.5){image(redAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+        else{image(redDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
+      }
+      else if(colors[this.ind]==="B"){
+        if(random()>.5){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+        else{blueDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
+      }
+      else if(colors[this.ind]==="I"){
+        if(random()>.5){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
+        else{image(otherBystander,this.x+2,this.y+2,this.w-4,this.h-4);}
+      }
       else {image(assassin,this.x+2,this.y+2,this.w-4,this.h-4);} 
     }
 }
