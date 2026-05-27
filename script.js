@@ -204,6 +204,8 @@ function keyTyped() {     //this function will run anytime the user types any ke
 class card{
   constructor(x,y,w,h,txt,ind){
     this.x=x;this.y=y;this.w=w;this.h=h;this.txt=txt;this.ind=ind;this.rgb=cardColor;
+    if(random()>.5){this.picIndicator=1;}
+    else{this.picIndicator=0;}
   }
 
   drawit(indy){
@@ -235,15 +237,15 @@ class card{
   drawPic(indy){
     if(activated[indy]===1){
       if(colors[this.ind]==="R"){
-        if(random()>.5){image(redAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+        if(this.picIndicator===1){image(redAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
         else{image(redDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
       }
       else if(colors[this.ind]==="B"){
-        if(random()>.5){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+        if(this.picIndicator===1){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
         else{image(blueDouble,this.x+2,this.y+2,this.w-4,this.h-4);}
       }
       else if(colors[this.ind]==="I"){
-        if(random()>.5){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
+        if(this.picIndicator===1){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
         else{image(otherBystander,this.x+2,this.y+2,this.w-4,this.h-4);}
       }
       else {image(assassin,this.x+2,this.y+2,this.w-4,this.h-4);} 
