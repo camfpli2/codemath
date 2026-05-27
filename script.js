@@ -11,6 +11,7 @@ var board=[];  //array of objects class is called CARD
 var colors;  //array of R's B's I's and 1 A
 var rgbColors=[]; //array of actual rgb combos for each element
 var boardWords=[];  //25 words on the board
+var activated=[]; //will be 16 0's created when words are created, become 1 when tapped
 var boardSideValue;  //# of pixels that is height of the rectangular board
 var boardWidthValue; //will be 20thirteenths of the boardSideValue later (*20/13)
 var widthOfEachCard;
@@ -22,7 +23,7 @@ var hgt;
 var redPicking=false;
 var bluePicking=false;
 var showing=false;
-var blueAgent; var blueDouble; var redAgent; var redDouble; var assassin;
+var blueAgent; var blueDouble; var redAgent; var redDouble; var assassin; var bystander; var otherBystander;
 
 
 function preload(){
@@ -38,6 +39,8 @@ function setup(){
   redAgent=loadImage('red_agent.png');
   redDouble=loadImage('red_double.png');
   assassin=loadImage('assassin.png');
+  bystander=loadImage('bystander1.png');
+  otherBystander=loadImage('bystander2.png');
   if(windowWidth>windowHeight){ 
     boardSideValue=windowHeight-20
     boardWidthValue=int(boardSideValue*(20/13)); 
@@ -62,6 +65,7 @@ function setup(){
   for(var r=0;r<4;r++){
     for(var c=0;c<4;c++){
       board.push(new card(xValues[c],yValues[r],widthOfEachCard,.65*widthOfEachCard,boardWords[counter],counter));
+      activated.push(0);
       counter++;
     }
   }
@@ -126,8 +130,12 @@ function drawBoard(){
   determineTextSize(30);  
   for(var d=0;d<board.length;d++){
     board[d].drawit(d);
+    board[d].drawPic(d);
   }
+  
 }
+
+
 
 // function figureX(){
 //   spaceToOccupyByCards=boardSideValue-30   // 6 spaces of 5pixels
@@ -216,12 +224,19 @@ class card{
 
   tapit(){
     if(mouseX>=this.x&&mouseX<=this.x+this.w&&mouseY>=this.y&&mouseY<=this.y+this.h){
+      activated[this.ind]=1;
       this.rgb=rgbColors[this.ind];
       drawBoard();
-      if(colors[this.ind]==="R"){image(redAgent,this.x,this.y,this.w-4,this.h-4);}
-      else if(colors[this.ind]==="B"){fill(blueColor);}
-      else if(colors[this.ind]==="I"){fill(yellowColor);}
-      else {fill(blackColor);} 
+
     }
   }
+
+  drawPic(indy){
+    if(activated[indy]===1){
+      if(colors[this.ind]==="R"){image(redAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+      else if(colors[this.ind]==="B"){image(blueAgent,this.x+2,this.y+2,this.w-4,this.h-4);}
+      else if(colors[this.ind]==="I"){image(bystander,this.x+2,this.y+2,this.w-4,this.h-4);}
+      else {image(assassin,this.x+2,this.y+2,this.w-4,this.h-4);} 
+    }
+}
 }
