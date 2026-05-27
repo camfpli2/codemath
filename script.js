@@ -218,6 +218,10 @@ class card{
     if(mouseX>=this.x&&mouseX<=this.x+this.w&&mouseY>=this.y&&mouseY<=this.y+this.h){
       this.rgb=rgbColors[this.ind];
       drawBoard();
+      if(colors[this.ind]==="R"){image(redAgent,this.x,this.y,this.w-4,this.h-4);}
+      else if(colors[this.ind]==="B"){fill(blueColor);}
+      else if(colors[this.ind]==="I"){fill(yellowColor);}
+      else {fill(blackColor);} 
     }
   }
 }
